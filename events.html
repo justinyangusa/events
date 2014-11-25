@@ -1,0 +1,349 @@
+<head>
+	<title>Events</title>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600|Source+Code+Pro:200,300,400,700' rel='stylesheet' type='text/css'>
+	<style>
+
+		body {
+		  background: #f5f5f5;
+		  
+		  margin: 0;
+		  padding: 0;
+		  
+		  font-family: 'Source Sans Pro', sans-serif;
+		  text-shadow: 0 0 1px rgba(255,255,255,0.004);
+		  font-size: 100%;
+		  font-weight: 300;
+		}
+		.toggler {
+		  color: #A1A1A4;
+		  font-size: 1.25em;
+		  margin-left: 8px;
+		  text-align: center;
+		  cursor: pointer; }
+		  .toggler.active {
+		    color: #000; 
+		}
+		.events {
+		  list-style: none;
+		  max-width: 960px;
+		  margin: 0 auto;
+		  padding: 0;
+		  
+		}
+		
+		.event-item {
+		  display: block;
+		  text-align:left;
+		  margin-top: 40px;
+		  padding: 20px;
+		  border-radius: 2px;
+		  background-color: #fff;
+		  box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25); }
+
+		  .grid .event-item {
+			  position: relative;
+			  display: inline-block;
+			  vertical-align: top;
+			  height: 400px;
+			  width: 300px;
+			  margin: 10px;
+			  
+		}
+		 @media screen and (max-width: 600px) {
+		 	.grid .event-item {
+			    display: block;
+			    width: auto;
+			    height: 250px;
+			    margin: 10px auto; }
+		}
+		.grid .event-title {
+		  display: block;
+		  max-width: 80%;
+		  font-size: 18px;
+		  line-height: 22px;
+		}
+		.grid .event-location {
+		  font-size: 12px;
+		  line-height: 17px;
+		  text-transform: uppercase;
+		}
+		.grid .event-location,
+		.grid .event-duration {
+		  color: #A1A1A4;
+		  font-size:12px;
+		  line-height:17px;
+		  display:block;
+		}
+	    .grid .event-cost,
+		.grid .event-description,
+		.grid .event-prizes {
+		  color:#000;
+		  font-size:14px;
+		  line-height:19px;
+		}
+		
+		.grid .event-title a { font-weight: 600; color:#000; text-decoration:none}
+		.grid .event-title a:hover { text-decoration:underline; }
+		
+		.event-level, .event-link, .event-cost {
+		    margin-top: 20px;
+		    padding-bottom: 20px;
+		    font-size: 14px;
+		    line-height: 21px;
+		  }
+		 .event-link {
+		  	font-weight:400;
+		  	}
+		.grid li:hover {
+		  background-color:#fcfcfc;
+		}
+	.grid a {
+		text-decoration:none;
+	}
+		
+	.grid .main-info {
+		height: 275px;
+	}
+		
+		
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+nav {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400; }
+
+.site-nav {
+  position: relative;
+  background: #35352B;
+  overflow:hidden;
+  text-align:center;
+  font-size: 0; }
+
+.site-nav__wrap {
+  min-width: 650px;}
+
+.site-nav__list {
+  display: inline-block;
+  vertical-align: middle;
+  text-transform:uppercase; }
+
+.site-nav__link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 25px 10px 25px;
+  border-bottom: 3px solid transparent;
+  font-size: 14px;
+  transition: .3s ease-in-out; }
+
+.site-nav__link:hover {
+  border-color: #E07767;
+  background: #272720; }
+
+.site-nav__link--active {
+  border-color: #E07767;
+  background: #E07767; }
+
+.resize {
+  text-align: center;
+  padding: 150px 0;
+  font-size: 27px;
+  max-width: 300px;
+  margin: 0 auto;
+  color: #35352B; }
+
+.resize span {
+  color: #E07767; }
+
+.event-landing {
+  background-color:#fff;
+  height:400px;
+  text-align:center;
+  margin-bottom:40px;
+}
+.event-landing-wrap {
+	max-width:960px;
+	margin:0 auto;
+}
+.event-landing h2 {
+  padding-top: 100px;
+  font-size:4em;
+  font-weight: 300;
+}
+.event-landing p {
+  font-size: 1em;
+  color:#a1a1ab;
+  padding-top: 40px;
+  font-weight:400;
+  font-style:italic;
+}
+
+.search-box {
+  clear:both;
+  width:70%;
+  margin:80px auto;
+  padding:0.4em;
+  font-size:1em;
+  color:#555;
+}
+
+
+
+footer {
+   bottom:0;
+   left: 0;
+   margin-top: 50px; 
+   height:200px; 
+   padding:20px; 
+   width:100%;
+   font-family: 'Source Sans Pro', sans-serif;
+   color:#999;
+}
+footer .footer-wrap {
+	max-width:960px; margin: 0 auto; text-align:center; padding-top: 50px; border-top: 1px solid #ddd;
+}
+footer p {
+	font-size:.9em; line-height:2em;
+}
+	</style>
+
+</head>
+<body>
+
+<nav class="site-nav">
+  <ul class="site-nav__wrap">
+    <li class="site-nav__list"><a  class="site-nav__link" href="http://gunnprogramming.com/index.php">GunnCS</a></li>
+    <li class="site-nav__list"><a  class="site-nav__link" href="http://gunnprogramming.com/index.php">Home</a></li>
+    <li class="site-nav__list"><a  class="site-nav__link  site-nav__link--active" href="http://gunnprogramming.com/events.php">Events</a></li>
+    <li class="site-nav__list"><a  class="site-nav__link" href="http://gunnprogramming.com/members">Members</a></li>
+    <li class="site-nav__list"><a  class="site-nav__link" href="http://gunnprogramming.com/index.php#contactGPT">Join</a></li>
+    <li class="site-nav__list"><a  class="site-nav__link" href="http://gunnprogramming.com/index.php#contactGPT">Contact</a></li>
+  </ul>
+</nav>
+<div class="event-landing">
+	<div class="event-landing-wrap">
+		<h2>Bay Area Coding Events</h2>
+		<p>Local and upcoming hackathons, meetups, online contests, and more to satisfy the high school programmer...</p>
+		<input type="text" class="search-box" placeholder="search" id="search">
+		<style id="search_style"></style>
+	</div>
+</div>
+
+
+<?php
+session_start();
+include_once 'inc/php/functions.php';
+include_once 'inc/php/dbconfig.php';
+
+$limit = 20;
+
+if (isset($_REQUEST['order'])) {
+	//means order by date or location
+}
+
+
+else {
+	$QUERY = "SELECT `id`,`title`, `starttime`,`endtime`, `location`, `description`, `level`, `cost`, `link`, `sponsors`, `size`, `prizes` FROM `events` WHERE DATEDIFF(NOW(), starttime)<=0 order by starttime LIMIT 20";
+	$result = mysql_query($QUERY);
+    	
+	echo "<ul class='events grid'>";
+
+	while($row = mysql_fetch_array($result)){ 
+		$event = "<li class='event-item searchable' data-index='"; //event html
+		$html = "";
+		
+		
+		$link = $row['link'];
+		$title = $row['title'];
+		$starttime = $row['starttime'];
+		
+		$date = strtotime($starttime);
+		$starttime = date('M d, H:i', $date);
+		
+		$endtime = $row['endtime'];
+		$date = strtotime($endtime);
+		$endtime = date('M d, H:i', $date);
+		
+		$location = $row['location'];
+		$description = $row['description'];
+		$link = $row['link'];
+		$prizes = $row['prizes'];
+		$cost = $row['cost'];
+		$leveln = $row['level']; //eventually these should be put into an array to be used in Queries and in displaying. 
+		
+		$html .= "	<span class='event-title'><a href='".$link."'>". $title."</a></span>"
+		. "  <div class='main-info'>"
+		. "	<span class='event-duration'>". $starttime." - ".$endtime."</span>"
+		. "  <br>"
+		. "	<span class='event-location'>". $location."</span>"
+		. "  <br>"
+		. "	<span class='event-description'>". $description."</span><br><br>"
+		
+		. "	<span class='event-link'><a href='".$link."'>Event Link</a></span><br><br>"
+		. "	<span class='event-prizes'>Prizes: ". $prizes."</span>";
+		
+		
+		$level = "All";
+		$color = "#444";
+		if ($leveln == 1) {
+			$level = "Beginners";
+			$color = "#63ab23";
+		}
+		else if ($leveln == 2) {
+			$level = "Intermediate";
+			$color = "orange";
+		}
+		else if ($leveln == 3) {
+			$level = "Advanced"; 
+			$color = "#ff0040";
+		}
+		$html .= "  </div><hr>"
+		. "	<span class='event-level' style='color:".$color."'>Level: ". $level."</span><br>"	
+		. "	<span class='event-cost'>Cost: ". $cost."</span><br>";
+		
+		
+		
+		$html .= "</li>";
+		
+
+		$event .= strtolower($title.' '.$starttime.' '.$location.' '.$leveln.' '.$cost)." '> " . $html;
+		echo "$event";
+	}
+	
+	
+	echo "</ul><!--end events-->";
+
+}
+
+
+mysql_close();
+    
+    
+    
+    
+?>
+<footer>
+  	<div class="footer-wrap">
+	<p>GunnCS.org is the website of the Gunn High School computer science department in Palo Alto. </p>
+  	</div>
+</footer>
+
+<script>
+var searchStyle = document.getElementById('search_style');
+document.getElementById('search').addEventListener('input', function() {
+  if (!this.value) {
+    searchStyle.innerHTML = "";
+    return;
+  }
+  searchStyle.innerHTML = ".searchable:not([data-index*=\"" + this.value.toLowerCase() + "\"]) { display: none; }";
+});
+
+
+</script>
+</body>
